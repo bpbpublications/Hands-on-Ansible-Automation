@@ -1,0 +1,21 @@
+---
+# This is a YAML comment
+some data # This is also a YAML comment
+this is a string
+'this is another string'
+"this is yet another a string"
+with_newlines: |
+Example Company
+123 Main Street
+New York, NY 10001
+without_newlines: >
+This is an example
+of a long string,
+that will become
+a single sentence.
+yaml_dictionary: {name1: value1, name2: value2}
+yaml_list1:
+- value1
+- value2
+yaml_list2: [value1, value2]
+...

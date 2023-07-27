@@ -1,0 +1,9 @@
+---
+all:
+  hosts:
+    server01.example.com:
+  children:
+    web:
+      hosts:
+        server02.example.com:
+        server03.example.com:

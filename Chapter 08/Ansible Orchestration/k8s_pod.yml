@@ -1,0 +1,28 @@
+---
+- name: Kubernetes pod deployment
+  hosts: all
+  vars:
+    my_namespace: "AutomateEverythingWithAnsible"
+  tasks:
+    - name: K8s namespace present
+      kubernetes.core.k8s:
+        api_version: v1
+        kind: Namespace
+        name: "{{ my_namespace }}"
+        state: present
+
+    - name: K8s pod present
+      kubernetes.core.k8s:
+        namespace: "{{ my_namespace }}"
+        state: present
+        definition:
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: nginx
+          spec:
+            containers:
+              - name: nginx
+                image: nginx:latest
+                ports:
+          - containerPort: 80

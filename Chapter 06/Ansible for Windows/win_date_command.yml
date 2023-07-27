@@ -1,0 +1,12 @@
+---
+- name: Execute command
+  hosts: all
+  tasks:
+    - name: Check getdate
+      ansible.windows.win_command: |
+        hostname
+        Get-Date        
+      register: command_output
+    - name: Command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines

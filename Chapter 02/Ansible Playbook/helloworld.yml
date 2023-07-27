@@ -1,0 +1,8 @@
+---
+- name: Hello World sample
+  hosts: all
+  tasks:
+    - name: Hello message
+      ansible.builtin.debug:
+        msg: "Hello World!"
+...

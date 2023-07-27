@@ -1,0 +1,15 @@
+---
+- name: Create a user account
+  hosts: all
+  vars:
+    usr_name: 'example'
+    usr_password: 'password'
+    usr_groups: "Users"
+  tasks:
+    - name: User example exist
+      ansible.windows.win_user:
+        name: "{{ usr_name }}"
+        password: "{{ usr_password }}"
+        groups: "{{ usr_groups }}"
+        update_password: on_create
+        password_expired: true

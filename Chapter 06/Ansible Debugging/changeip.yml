@@ -1,0 +1,27 @@
+---
+- name: Change IP Address of Remote Host
+  hosts: all
+  become: true
+  vars:
+    new_ip_address: 192.168.1.100
+    netmask: 255.255.255.0
+  tasks:
+    - name: Update Network Configuration File
+      ansible.builtin.lineinfile:
+        path: /etc/network/interfaces
+        regexp: '^address'
+        line: 'address {{ new_ip_address }}'
+      notify:
+        - Restart Network Service
+    - name: Update Netmask Configuration File
+      ansible.builtin.lineinfile:
+        path: /etc/network/interfaces
+        regexp: '^netmask'
+        line: 'netmask {{ netmask }}'
+      notify:
+        - Restart Network Service
+  handlers:
+    - name: Restart Network Service
+      ansible.builtin.service:
+        name: networking
+        state: restarted

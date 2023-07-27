@@ -1,0 +1,10 @@
+---
+- name: Create a directory
+  hosts: all
+  vars:
+    mydir: 'C:\Users\ansible\Desktop\example'
+  tasks:
+    - name: Create a directory
+      ansible.windows.win_file:
+        path: "{{ mydir }}"
+        state: directory

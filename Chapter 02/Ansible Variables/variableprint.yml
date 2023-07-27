@@ -1,0 +1,9 @@
+---
+- name: Variable print sample
+  hosts: all
+  vars:
+    operatingsystem: "linux"
+  tasks:
+    - name: Print variable
+      ansible.builtin.debug:
+        msg: "Print the value of variable {{ operatingsystem }}"

@@ -1,0 +1,17 @@
+---
+- name: webserver
+  hosts: web
+  become: true
+  tasks:
+  - name: Nginx installed
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+- name: db
+  hosts: db
+  become: true
+  tasks:
+  - name: PostgreSQL installed
+    ansible.builtin.apt:
+      name: postgresql
+      state: present

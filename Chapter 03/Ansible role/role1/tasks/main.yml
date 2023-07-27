@@ -1,0 +1,7 @@
+---
+- name: role1 demo
+  ansible.builtin.debug:
+    msg: "role1"
+- name: role1 foo
+  ansible.builtin.debug:
+    var: foo

@@ -1,0 +1,1 @@
+demo.example.com ansible_host=192.168.246.128 ansible_user=luca

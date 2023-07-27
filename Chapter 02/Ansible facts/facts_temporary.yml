@@ -1,0 +1,12 @@
+---
+- name: Temporary Facts
+  hosts: all
+  tasks:
+    - name: Set mydistribution
+      ansible.builtin.set_fact:
+        mydistribution: >-
+          "{{ 'rhel' if (ansible_distribution == 'Red Hat Enterprise Linux')
+          else ansible_distribution }}"
+    - name: Print mydistribution
+      ansible.builtin.debug:
+        var: mydistribution

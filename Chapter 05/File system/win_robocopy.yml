@@ -1,0 +1,12 @@
+---
+- name: Backup
+  hosts: all
+  become: false
+  vars:
+    source: "Desktop"
+    destination: ‘C:\Backups’
+  tasks:
+    - name: Backup files with robocopy
+      community.windows.win_robocopy:
+        src: '{{ source }}'
+        dest: '{{ destination }}'

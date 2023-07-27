@@ -1,0 +1,22 @@
+---
+- hosts: all
+  vars:
+    servers:
+      host01:
+        ip: 192.168.1.11
+        type: large
+      host02:
+        ip: 192.168.1.12
+        type: small
+  tasks:
+    - name: Map IP addresses
+      ansible.builtin.debug:
+        msg: "{{ servers.values() | map(attribute='ip') }}"
+
+    - name: List IP addresses
+      ansible.builtin.debug:
+        msg: "{{ servers.values() | map(attribute='ip') | join(',') }}"
+
+    - name: Only large machines
+      ansible.builtin.debug:
+        msg: "{{ servers.values() | selectattr('type', 'eq', 'large') | map(attribute='ip') | join(',') }}"

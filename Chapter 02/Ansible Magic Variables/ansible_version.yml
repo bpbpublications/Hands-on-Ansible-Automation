@@ -1,0 +1,7 @@
+---
+- name: ansible_version print
+  hosts: all
+  tasks:
+    - name: ansible_version display
+      ansible.builtin.debug:
+        var: ansible_version

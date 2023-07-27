@@ -1,0 +1,7 @@
+---
+web:
+  hosts:
+    server01.example.com:
+    server02.example.com:
+  vars:
+    ntp_server: europe.pool.ntp.org

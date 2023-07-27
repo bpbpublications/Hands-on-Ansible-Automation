@@ -1,0 +1,6 @@
+---
+- name: Testing the host availability
+  hosts: all
+  tasks:
+    - name: Test connection
+      ansible.windows.win_ping:

@@ -1,0 +1,8 @@
+---
+- name: Ansible version
+  hosts: all
+  tasks:
+    - name: Display version
+      ansible.builtin.debug:
+        msg: "{{ ansible_version }}"
+        verbosity: 1

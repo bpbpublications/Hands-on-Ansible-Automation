@@ -1,0 +1,8 @@
+---
+- hosts: all
+  vars:
+    timesync_ntp_servers:
+      - hostname: europe.pool.ntp.org
+        iburst: true
+  roles:
+    - linux-system-roles.timesync

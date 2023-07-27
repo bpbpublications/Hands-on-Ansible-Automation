@@ -1,0 +1,7 @@
+---
+- name: Upper filter
+  hosts: all
+  tasks:
+  - name: Apply a filter
+    ansible.builtin.debug:
+      msg: '{{ "Automate Everything with Ansible" | upper }}'

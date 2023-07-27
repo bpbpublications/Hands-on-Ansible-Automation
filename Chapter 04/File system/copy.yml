@@ -1,0 +1,10 @@
+---
+- name: Copy file
+  hosts: all
+  tasks:
+    - name: Copy report.txt
+      ansible.builtin.copy:
+        src: report.txt
+        dest: /home/devops/report.txt
+        owner: devops
+        mode: '0644'

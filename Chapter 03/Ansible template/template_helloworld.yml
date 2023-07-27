@@ -1,0 +1,12 @@
+---
+- name: template module
+  hosts: all
+  vars:
+    file_content: |
+      Automate Everything with Ansible example.
+      Multiline.
+  tasks:
+    - name: Apply template
+      ansible.builtin.template:
+        src: templates/helloworld.txt.j2
+        dest: /home/devops/helloworld.txt

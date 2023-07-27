@@ -1,0 +1,12 @@
+---
+- name: Group add
+  hosts: all
+  vars:
+    mygroup: 'accounting'
+    mydescription: 'accounting group'
+  tasks:
+    - name: Create a new group
+      ansible.windows.win_group:
+        name: "{{ mygroup }}"
+        description: "{{ mydescription }}"
+        state: present

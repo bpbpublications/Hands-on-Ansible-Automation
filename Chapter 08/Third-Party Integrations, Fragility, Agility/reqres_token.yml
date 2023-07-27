@@ -1,0 +1,22 @@
+---
+- name: API Bearer Token
+  hosts: all
+  vars:
+    server: "https://reqres.in"
+    endpoint: "/api/login"
+  tasks:
+    - name: Reqres login
+      ansible.builtin.uri:
+        url: "{{ server }}{{ endpoint }}"
+        method: POST
+        body_format: json
+        body: '{
+          "email": "eve.holt@reqres.in",
+          "password": "cityslicka"
+        }'
+        status_code: 200
+        timeout: 30
+      register: result
+    - name: Reqres token
+      ansible.builtin.debug:
+        var: result.json.token

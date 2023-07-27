@@ -1,0 +1,15 @@
+---
+- name: webserver
+  hosts: web
+  become: true
+  tasks:
+  - name: Nginx installed
+    ansible.builtin.apt:
+      name: nginx
+      state: present
+- name: test page
+  hosts: web1.example.com
+  tasks:
+  - name: Test page
+    ansible.builtin.uri:
+      url: http://www1.example.com

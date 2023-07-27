@@ -1,0 +1,11 @@
+---
+- name: Copy report.txt
+  hosts: all
+  vars:
+    source: "report.txt"
+    destination: "Desktop/report.txt"
+  tasks:
+    - name: Copy report.txt
+      ansible.windows.win_copy:
+        src: "{{ source }}"
+        dest: "{{ destination }}"

@@ -1,0 +1,12 @@
+---
+- name: Backup
+  hosts: all
+  vars:
+    source_dir: /var/www
+    dest_dir: /backups
+  tasks:
+    - name: Backup files with rsync
+      ansible.builtin.synchronize:
+        src: "{{ source_dir }}"
+        dest: "{{ dest_dir }}"
+        mode: backup

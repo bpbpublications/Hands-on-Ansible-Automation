@@ -1,0 +1,25 @@
+---
+- name: Start EC2
+  hosts: all
+  vars:
+    ec2_name: "server-ec2"
+    ec2_ssh: "my-ssh-key"
+    ec2_vpc: "subnet-pub1234"
+    ec2_type: "c5.large"
+    ec2_sg: "default"
+    ec2_ami: "ami-123456"
+    ec2_tag: "Development"
+    ec2_ip_public: true
+  tasks:
+    - name: Start an EC2 instance
+      amazon.aws.ec2_instance:
+        name: "{{ ec2_name }}"
+        key_name: "{{ ec2_ssh }}"
+        vpc_subnet_id: "{{ ec2_vpc }}"
+        instance_type: "{{ ec2_type }}"
+        security_group: "{{ ec2_sg }}"
+        network:
+          assign_public_ip: "{{ ec2_ip_public }}"
+        image_id: "{{ ec2_ami }}"
+        tags:
+          Environment: "{{ ec2_tag }}"

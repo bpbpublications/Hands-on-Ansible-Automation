@@ -1,0 +1,12 @@
+---
+- name: Copy multiple files to remote hosts
+  hosts: all
+  become: false
+  tasks:
+    - name: Copy multiple file(s)
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "/home/devops/"
+        mode: '0644'
+      with_fileglob:
+        - "examples/*.txt"

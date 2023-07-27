@@ -1,0 +1,15 @@
+---
+- name: Downloading a file
+  hosts: all
+  vars:
+    myurl: "https://releases.ansible.com/ansible/ansible-2.9.25.tar.gz"
+    mycrc: "https://releases.ansible.com/ansible/ansible-2.9.25.tar.gz.sha"
+    mycrc_algorithm: "sha256"
+    mydest: 'C:\Users\vagrant\Desktop\ansible-2.9.25.tar.gz'
+  tasks:
+    - name: Download file
+      ansible.windows.win_get_url:
+        url: "{{ myurl }}"
+        dest: "{{ mydest }}"
+        checksum_algorithm: "{{ mycrc_algorithm }}"
+        checksum_url: "{{ mycrc }}"

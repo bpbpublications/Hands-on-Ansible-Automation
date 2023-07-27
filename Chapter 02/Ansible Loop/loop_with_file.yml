@@ -1,0 +1,8 @@
+---
+- name: Example with_file
+  hosts: all
+  tasks:
+    - name: Install packages
+      ansible.builtin.yum:
+        name: "{{ item }}"
+      with_file: myrpms.txt

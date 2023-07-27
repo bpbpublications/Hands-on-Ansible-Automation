@@ -1,0 +1,12 @@
+---
+- name: Check .NET version
+  hosts: all
+  tasks:
+    - name: Retrieve .NET version
+      ansible.windows.win_reg_stat:
+        path: 'HKLM:\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full'
+        name: "Version"
+      register: reg_val
+    - name: Print .NET version
+      ansible.builtin.debug:
+        msg: "{{ reg_val }}"

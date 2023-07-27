@@ -1,0 +1,11 @@
+---
+- name: Fetch module
+  hosts: all
+  vars:
+    myfile: 'C:\Users\vagrant\Desktop\example.txt'
+    save_dir: "logs"
+  tasks:
+    - name: Fetch file
+      ansible.builtin.fetch:
+        src: "{{ myfile }}"
+        dest: "{{ save_dir }}"

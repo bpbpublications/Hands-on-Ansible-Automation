@@ -1,0 +1,12 @@
+---
+- name: Installing packages
+  hosts: all
+  vars:
+    - packages:
+      - git
+      - notepadplusplus
+  tasks:
+    - name: Install packages
+      chocolatey.chocolatey.win_chocolatey:
+        name: "{{ packages }}"
+        state: present

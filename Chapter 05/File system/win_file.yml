@@ -1,0 +1,10 @@
+---
+- name: Creating an empty file
+  hosts: all
+  vars:
+    myfile: 'C:\Users\ansible\Desktop\example.txt'
+  tasks:
+    - name: Creating an empty file
+      ansible.windows.win_file:
+        path: "{{ myfile }}"
+        state: touch

@@ -1,0 +1,10 @@
+---
+- name: Wrong module demo
+  hosts: all
+  tasks:
+    - name: List file(s) and folder(s)
+      ansible.builtin.command: 'ls -l *'
+      register: command_output
+    - name: Command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines

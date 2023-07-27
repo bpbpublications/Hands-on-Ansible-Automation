@@ -1,0 +1,7 @@
+---
+- name: Ping Test
+  hosts: all
+  tasks:
+    - name: Test Connection
+      ansible.builtin.ping:
+        data: "ready for connections"

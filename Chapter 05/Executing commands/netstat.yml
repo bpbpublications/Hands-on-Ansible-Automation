@@ -1,0 +1,10 @@
+---
+- name: Netstat playbook
+  hosts: all
+  tasks:
+    - name: Check netstat
+      ansible.windows.win_command: "netstat -e"
+      register: command_output
+    - name: Command output
+      ansible.builtin.debug:
+        var: command_output.stdout_lines

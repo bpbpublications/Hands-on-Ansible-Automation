@@ -1,0 +1,10 @@
+---
+- name: Windows registry remove
+  hosts: all
+  vars:
+    mypath: 'HKLM:\Software\Test'
+  tasks:
+    - name: Registry remove path
+      ansible.windows.win_regedit:
+        path: "{{ mypath }}"
+        state: absent

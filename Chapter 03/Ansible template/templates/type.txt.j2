@@ -1,0 +1,5 @@
+{% for key, value in servers.items() if value.type is 'large' %}
+{{ key }} is large
+{% else %}
+{{ key }} is {{ value.type }}.
+{% endfor %}

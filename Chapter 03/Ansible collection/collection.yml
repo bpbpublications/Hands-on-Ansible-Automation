@@ -1,0 +1,10 @@
+---
+- name: iso_create module demo
+  hosts: all
+  tasks:
+    - name: Create an ISO file
+      community.general.iso_create:
+        src_files:
+          - /home/devops/helloworld.yml
+        dest_iso: /home/devops/devops.iso
+        interchange_level: 3

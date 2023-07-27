@@ -1,0 +1,13 @@
+---
+- name: Create a text file
+  hosts: all
+  vars:
+    myfile: 'C:\Users\ansible\Desktop\example.txt'
+  tasks:
+  - name: Create a text file
+    ansible.windows.win_copy:
+      dest: "{{ myfile }}"
+      content: |
+        1 Automate
+        2 Everything
+        3 with Ansible

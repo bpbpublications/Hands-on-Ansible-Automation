@@ -1,0 +1,10 @@
+---
+- name: Delete a directory
+  hosts: all
+  vars:
+    mydir: 'C:\Users\ansible\Desktop\example'
+  tasks:
+    - name: Delete a directory
+      ansible.windows.win_file:
+        path: "{{ mydir }}"
+        state: absent

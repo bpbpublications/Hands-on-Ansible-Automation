@@ -1,0 +1,13 @@
+---
+- name: Create example.txt file
+  hosts: all
+  vars:
+    myfile: "report.txt"
+  tasks:
+  - name: Create a text file
+    ansible.builtin.copy:
+      dest: "{{ myfile }}"
+      content: |
+        1 Automate
+        2 Everything
+        3 with Ansible

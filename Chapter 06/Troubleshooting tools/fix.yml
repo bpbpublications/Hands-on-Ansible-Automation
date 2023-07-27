@@ -1,0 +1,23 @@
+---
+- name: Troubleshooting example
+  hosts: all
+  vars:
+    servers:
+      host01:
+        ip: 192.168.1.11
+        type: large
+  tasks:
+    - name: Print a fact
+      ansible.builtin.debug:
+        var: ansible_facts['architecture']
+
+    - name: Latest apache2 package
+      ansible.builtin.apt:
+        name: apache2
+        state: present
+        update_cache: true
+
+    - name: Only large machines
+      ansible.builtin.debug:
+        msg: "{{ servers.values() | selectattr('type', 'eq', 'large') |
+          map(attribute='ip') | join(',') }}"

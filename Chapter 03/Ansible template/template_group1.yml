@@ -1,0 +1,8 @@
+---
+- name: template module
+  hosts: all
+  tasks:
+    - name: Apply template
+      ansible.builtin.template:
+        src: templates/group1.txt.j2
+        dest: group1.txt

@@ -1,0 +1,14 @@
+---
+- name: Deploy Application
+  hosts: all
+  tasks:
+    - name: Git installed
+      ansible.builtin.package:
+      become: true
+        name: git
+        state: present
+
+    - name: Checkout git repo
+      ansible.builtin.git:
+        repo: https://github.com/ansible/ansible.git
+        dest: /home/devops/automate-everything-with-ansible
